@@ -5,7 +5,7 @@ fetch("https://crudcrud.com/api/cdb0328c2b9840e1bca850e942470695/clientes")
 .then((listaDeClientes) => {
     listaDeClientes.forEach(cliente => {
         const item = document.createElement("li");
-        item.innerHTML = `${cliente.nome}; ${cliente.email} <button onClic = "remove('${cliente._id}')">x</button>`;
+        item.innerHTML = `${cliente.nome}; ${cliente.email} <button onClick = "remove('${cliente._id}')">x</button>`;
         clientes.appendChild(item)
     })
 })
@@ -24,7 +24,19 @@ document.getElementById("cadastrar").addEventListener("click", ()=>{
     .then(resposta => resposta.json())
     .then((cliente) =>{
         const item = document.createElement("li");
-        item.innerHTML =`${cliente.nome}; ${cliente.email} <button onclic = "remove('${cliente._id}')">x</button>`;
+        item.innerHTML =`${cliente.nome}; ${cliente.email} <button onclick = "remove('${cliente._id}')">x</button>`;
         clientes.appendChild(item);
     })
 })
+
+function remove(id){
+    const button = event.target;
+    const item = button.parentElement;
+
+    fetch(`https://crudcrud.com/api/cdb0328c2b9840e1bca850e942470695/clientes/${id}`,{
+        method: "DELETE",
+    })
+    .then(() =>{
+        item.remove()
+    })
+}
