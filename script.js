@@ -30,7 +30,7 @@ document.getElementById("cadastrar").addEventListener("click", ()=>{
 })
 
 function remove(id){
-    const button = event.target;
+    const button = window.event.target;
     const item = button.parentElement;
 
     fetch(`https://crudcrud.com/api/cdb0328c2b9840e1bca850e942470695/clientes/${id}`,{
