@@ -53,13 +53,16 @@ li{
     background-color: #376c92;
     margin-bottom: 2px;
     padding: 2px;
+    align-items: center;
 }
 
 li > button{
-    display: flex;
+    display: inline-block;
     margin-left: auto;
-    padding: 0px 5px;
     border: none;
     background-color: #fff;
     color: #053252;
+    height: 20px;
+    width: 20px;
+    align-content: center;
 }
